@@ -117,9 +117,10 @@ a {
   color: white;
   text-align: center;
   font-family: var(--font-be-vietnam-pro), "Segoe UI", Arial, sans-serif;
+  font-size: .9375rem;
   font-weight: 700;
-  letter-spacing: .02em;
-  line-height: 1.45;
+  letter-spacing: 0;
+  line-height: 1.55;
   position: relative;
   z-index: 20;
 }
@@ -332,6 +333,11 @@ a {
 .floating-card span {
   color: var(--ink-soft);
   font-size: .8125rem;
+}
+
+.announcement b {
+  margin-inline: 3px;
+  color: var(--gold);
 }
 
 .floating-card-top {
@@ -1007,122 +1013,208 @@ a:focus-visible {
 }
 
 .gifts-section {
-  background: var(--surface);
+  background:
+    radial-gradient(circle at 8% 12%, rgb(19 183 213 / 10%), transparent 26%),
+    radial-gradient(circle at 90% 76%, rgb(255 22 125 / 9%), transparent 28%),
+    var(--surface);
+}
+
+.program-value-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 20px;
+  padding: 26px 30px;
+  border-radius: 22px;
+  background: linear-gradient(125deg, var(--navy), var(--navy-2));
+  color: white;
+  box-shadow: 0 24px 55px rgb(7 26 51 / 18%);
+}
+
+.program-value-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 12%);
+  color: var(--gold);
+}
+
+.program-value-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.program-value-card span,
+.program-value-card h3,
+.program-value-card p {
+  margin: 0;
+}
+
+.program-value-card span {
+  color: var(--cyan);
+  font-size: .8125rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.program-value-card h3 {
+  margin-top: 4px;
+  font-size: 1.4rem;
+  line-height: 1.35;
+}
+
+.program-value-card p {
+  display: grid;
+  justify-items: end;
+}
+
+.program-value-card small {
+  color: rgb(255 255 255 / 60%);
+}
+
+.program-value-card strong {
+  color: var(--gold);
+  font-size: 1.35rem;
 }
 
 .gifts-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .gift-card {
+  --gift-accent: var(--green);
+  position: relative;
+  min-height: 230px;
+  padding: 27px 26px 24px;
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 12px 35px rgb(7 26 51 / 7%);
+  box-shadow: 0 14px 38px rgb(7 26 51 / 8%);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.gift-image {
-  position: relative;
-  height: 195px;
-  overflow: hidden;
-  background: #dce9f3;
-}
+.gift-card:nth-child(2n) { --gift-accent: var(--blue); }
+.gift-card:nth-child(3n) { --gift-accent: var(--pink); }
 
-.gift-image::after {
+.gift-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgb(7 26 51 / 36%), transparent 70%);
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--gift-accent);
 }
 
-.gift-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.gift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgb(7 26 51 / 13%);
 }
 
-.gift-image > span {
+.gift-number {
   position: absolute;
-  z-index: 2;
-  left: 13px;
-  bottom: 12px;
-  padding: 5px 9px;
-  border-radius: 6px;
-  background: var(--pink);
-  color: white;
+  top: 18px;
+  right: 20px;
+  color: var(--gift-accent);
   font-size: .8125rem;
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: .05em;
 }
 
-.gift-body {
-  position: relative;
-  min-height: 280px;
-  padding: 26px 22px 22px;
+.gift-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--gift-accent) 12%, white);
+  color: var(--gift-accent);
 }
 
-.gift-body > svg {
-  color: var(--green);
+.gift-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
-.gift-body h3 {
-  margin: 15px 0 9px;
+.gift-card h3 {
+  max-width: 88%;
+  margin: 22px 0 28px;
   color: var(--navy);
-  font-size: 1.13rem;
-  line-height: 1.3;
+  font-size: 1.15rem;
+  line-height: 1.45;
 }
 
-.gift-body p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: .9rem;
-}
-
-.gift-value {
+.gift-price {
   position: absolute;
-  left: 22px;
-  bottom: 20px;
-  color: var(--green-dark);
-  font-size: .8125rem;
-  font-weight: 800;
-  letter-spacing: .035em;
+  right: 26px;
+  bottom: 22px;
+  left: 26px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.gift-price span {
+  color: var(--ink-soft);
+  font-size: .875rem;
+}
+
+.gift-price strong {
+  color: var(--gift-accent);
+  font-size: 1.05rem;
 }
 
 .gift-summary {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
   margin-top: 30px;
-  padding: 28px 30px;
-  border: 3px dashed var(--green);
-  border-radius: 18px;
-  background: white;
+  padding: 30px 32px;
+  border: 0;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #071a33, #0c2f56);
+  color: white;
+  box-shadow: 0 24px 60px rgb(7 26 51 / 20%);
 }
 
 .gift-summary > svg {
-  width: 50px;
-  height: 50px;
-  color: var(--pink);
+  width: 54px;
+  height: 54px;
+  color: var(--gold);
 }
 
-.gift-summary p,
-.gift-summary h3 {
-  margin: 0;
+.gift-total,
+.gift-free {
+  display: grid;
+  gap: 3px;
 }
 
-.gift-summary p {
-  color: var(--pink);
+.gift-total span,
+.gift-free span {
+  color: rgb(255 255 255 / 58%);
   font-size: .8125rem;
   font-weight: 800;
-  letter-spacing: .05em;
+  letter-spacing: .06em;
 }
 
-.gift-summary h3 {
-  color: var(--navy);
-  font-size: 1.4rem;
+.gift-total del {
+  color: rgb(255 255 255 / 68%);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.gift-free strong {
+  color: var(--gold);
+  font-size: 1.7rem;
+  line-height: 1.1;
 }
 
 .transformation-section {
@@ -1428,6 +1520,53 @@ a:focus-visible {
   font-size: 1.07rem;
 }
 
+.group-link-button {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  width: min(100%, 590px);
+  margin-top: 28px;
+  padding: 17px 18px;
+  border: 2px solid rgb(255 255 255 / 55%);
+  border-radius: 16px;
+  background: white;
+  color: var(--navy);
+  box-shadow: 0 18px 45px rgb(0 0 0 / 18%);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.group-link-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgb(0 0 0 / 24%);
+}
+
+.group-link-button > svg:first-child {
+  width: 28px;
+  height: 28px;
+  color: var(--green);
+}
+
+.group-link-button > svg:last-child {
+  color: var(--pink);
+}
+
+.group-link-button span {
+  display: grid;
+  gap: 2px;
+}
+
+.group-link-button small {
+  color: var(--pink);
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+}
+
+.group-link-button b {
+  font-size: 1.02rem;
+}
+
 .event-meta {
   display: grid;
   gap: 11px;
@@ -1582,7 +1721,7 @@ footer {
   .curriculum-banner { grid-template-columns: 130px 1fr; }
   .curriculum-banner img { width: 130px; }
   .curriculum-banner .cta-button { grid-column: 1 / -1; justify-self: center; }
-  .gift-summary { grid-template-columns: auto 1fr; }
+  .gift-summary { grid-template-columns: auto 1fr 1fr; }
   .gift-summary .cta-button { grid-column: 1 / -1; justify-self: center; }
 }
 
@@ -1681,10 +1820,11 @@ footer {
   .testimonial-grid img { height: auto; max-height: 560px; }
   .curriculum-banner { grid-template-columns: 1fr; text-align: center; }
   .curriculum-banner img { width: 100%; height: 210px; }
-  .gift-card { display: grid; grid-template-columns: 130px 1fr; }
-  .gift-image { height: 100%; min-height: 250px; }
-  .gift-body { min-height: 250px; padding: 22px 17px; }
-  .gift-value { left: 17px; bottom: 17px; }
+  .program-value-card { grid-template-columns: auto 1fr; padding: 24px 20px; text-align: left; }
+  .program-value-card p { grid-column: 1 / -1; justify-items: start; padding-top: 16px; border-top: 1px solid rgb(255 255 255 / 14%); }
+  .gift-card { min-height: 225px; padding: 24px 21px; }
+  .gift-card h3 { max-width: 100%; padding-right: 38px; }
+  .gift-price { right: 21px; left: 21px; }
   .gift-summary { grid-template-columns: 1fr; text-align: center; justify-items: center; padding: 24px 18px; }
   .before-card,
   .after-card { padding: 28px 23px; }
@@ -1699,6 +1839,7 @@ footer {
   .registration-copy { text-align: center; }
   .registration-copy .pill { margin-inline: auto; }
   .registration-copy h2 { font-size: 2.7rem; }
+  .group-link-button { margin-inline: auto; text-align: left; }
   .event-meta { text-align: left; }
   .qr-card { padding: 24px 18px; transform: none; }
   .footer-links { flex-wrap: wrap; }

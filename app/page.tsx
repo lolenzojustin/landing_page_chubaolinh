@@ -16,16 +16,15 @@ import {
   MonitorPlay,
   MousePointerClick,
   Play,
-  Rocket,
   Sparkles,
   Target,
   Users,
-  WandSparkles,
   X,
   Zap,
 } from "lucide-react";
 
 const imageRoot = "/images/chu-bao-linh";
+const zaloGroupUrl = "https://zaloapp.com/qr/g/hmpjvz159?src=qr";
 
 const painPoints = [
   "Bạn muốn bắt đầu Affiliate nhưng chưa biết nên chọn sản phẩm, nội dung hay công cụ trước.",
@@ -78,14 +77,14 @@ const modules = [
 ];
 
 const gifts = [
-  { title: "Bộ chiến lược triển khai theo tuần", text: "Khung công việc giúp bạn biết cần ưu tiên điều gì trong từng giai đoạn.", icon: CalendarDays, image: "travel-01.jpg" },
-  { title: "Sổ tay 100 ý tưởng nội dung", text: "Nguồn gợi ý để bắt đầu viết và thử nghiệm thông điệp phù hợp với khách hàng.", icon: BookOpenCheck, image: "temple.png" },
-  { title: "Bản đồ phễu chuyển đổi", text: "Mẫu trực quan để nối traffic, nội dung, điểm cân nhắc và hành động.", icon: Map, image: "trainer.png" },
-  { title: "Checklist công cụ AI", text: "Danh sách công cụ và cách lựa chọn theo đúng nhu cầu, tránh dùng quá nhiều.", icon: Bot, image: "program-badge.jpg" },
-  { title: "Bộ khung nội dung chuyển đổi", text: "Các cấu trúc bài viết và lời kêu gọi hành động để bạn tùy chỉnh.", icon: WandSparkles, image: "wellness.png" },
-  { title: "Kịch bản chăm sóc khách hàng", text: "Khung hội thoại giúp duy trì sự rõ ràng và nhất quán trong quá trình tư vấn.", icon: Users, image: "networking.jpg" },
-  { title: "Phiên hỏi đáp cùng cộng đồng", text: "Không gian cùng phân tích vướng mắc và nhìn lại cách triển khai thực tế.", icon: MonitorPlay, image: "community.png" },
-  { title: "Lộ trình hành động 30 ngày", text: "Một bản kế hoạch gọn để tiếp tục thực hành sau khi kết thúc thử thách.", icon: Rocket, image: "running.jpg" },
+  { title: "Hệ thống nội dung đăng lên MXH làm sẵn 365 ngày", value: "10.970.000 VNĐ", icon: CalendarDays },
+  { title: "Hệ thống nội dung chia sẻ giá trị làm sẵn 365 ngày", value: "12.970.000 VNĐ", icon: BookOpenCheck },
+  { title: "Hệ thống xây thương hiệu chuyên gia", value: "12.970.000 VNĐ", icon: BadgeCheck },
+  { title: "Hệ thống xây kênh triệu view", value: "7.970.000 VNĐ", icon: Play },
+  { title: "Hệ thống đào tạo tự nhân bản", value: "9.970.000 VNĐ", icon: Bot },
+  { title: "Hệ thống tài liệu phát triển trọn đời", value: "39.970.000 VNĐ", icon: Layers3 },
+  { title: "Bí mật hệ thống dòng tiền trọn đời", value: "19.970.000 VNĐ", icon: CircleDollarSign },
+  { title: "Nhóm kín Bí mật dòng tiền", value: "VÔ GIÁ", icon: Users },
 ];
 
 const before = [
@@ -137,7 +136,7 @@ export default function Home() {
     <main>
       <div className="announcement">
         <CalendarDays aria-hidden="true" size={20} />
-        <span>THỬ THÁCH THỰC HÀNH 2 NGÀY · AFFILIATE TỰ ĐỘNG CÙNG CHU BẢO LINH</span>
+        <span>Thử thách thực hành 2 ngày <b>·</b> Affiliate tự động cùng Chu Bảo Linh</span>
       </div>
 
       <section className="hero" id="top">
@@ -282,14 +281,31 @@ export default function Home() {
 
       <section className="section gifts-section">
         <div className="container">
-          <SectionHeading eyebrow="BỘ TÀI NGUYÊN ĐI KÈM" title="8 quà tặng giúp bạn triển khai nhanh hơn" description="Các tài nguyên được thiết kế để giảm thời gian bắt đầu và giúp bạn tập trung vào phần quan trọng nhất." />
+          <SectionHeading eyebrow="BỘ QUÀ TẶNG ĐẶC BIỆT" title="8 hệ thống đã được chuẩn bị để bạn bắt tay vào làm ngay" description="Không còn những hình ảnh minh họa không liên quan. Mỗi thẻ bên dưới thể hiện đúng tài nguyên và giá trị bạn nhận được khi tham gia." />
+          <article className="program-value-card">
+            <div className="program-value-icon"><MonitorPlay /></div>
+            <div><span>NỘI DUNG CHÍNH</span><h3>Thử thách 2 ngày Tự động Affiliate</h3></div>
+            <p><small>Giá trị</small><strong>12.970.000 VNĐ</strong></p>
+          </article>
           <div className="gifts-grid">
             {gifts.map((gift, index) => {
               const Icon = gift.icon;
-              return <article className="gift-card" key={gift.title}><div className="gift-image"><img src={`${imageRoot}/${gift.image}`} alt="" loading="lazy" /><span>QUÀ #{index + 1}</span></div><div className="gift-body"><Icon /><h3>{gift.title}</h3><p>{gift.text}</p><span className="gift-value">TẶNG KÈM KHI THAM GIA</span></div></article>;
+              return (
+                <article className="gift-card" key={gift.title}>
+                  <div className="gift-number">TẶNG #{index + 1}</div>
+                  <div className="gift-icon"><Icon /></div>
+                  <h3>{gift.title}</h3>
+                  <div className="gift-price"><span>Giá trị</span><strong>{gift.value}</strong></div>
+                </article>
+              );
             })}
           </div>
-          <div className="gift-summary"><Gift /><div><p>TOÀN BỘ BỘ TÀI NGUYÊN</p><h3>Đi cùng 5 module thực hành trong thử thách 2 ngày</h3></div><Cta compact /></div>
+          <div className="gift-summary">
+            <Gift />
+            <div className="gift-total"><span>THÔNG THƯỜNG</span><del>125.970.000 VNĐ</del></div>
+            <div className="gift-free"><span>HÔM NAY</span><strong>MIỄN PHÍ</strong></div>
+            <Cta compact />
+          </div>
         </div>
       </section>
 
@@ -355,9 +371,14 @@ export default function Home() {
       <section className="section registration-section" id="dang-ky">
         <div className="container registration-grid">
           <div className="registration-copy">
-            <div className="pill pill-light"><CircleDollarSign size={16} /> BẮT ĐẦU BẰNG MỘT QUYẾT ĐỊNH NHỎ</div>
-            <h2>Sẵn sàng dành 2 ngày để nhìn rõ con đường Affiliate của bạn?</h2>
-            <p>Quét mã QR để kết nối qua Zalo và nhận thông tin lịch học, hình thức tổ chức cùng hướng dẫn giữ chỗ.</p>
+            <div className="pill pill-light"><CircleDollarSign size={16} /> 2 CÁCH VÀO NHÓM ZALO</div>
+            <h2>Chọn cách thuận tiện nhất để tham gia nhóm</h2>
+            <p>Bấm trực tiếp vào liên kết bên dưới hoặc dùng Zalo quét mã QR. Cả hai cách đều đưa bạn đến cùng một nhóm.</p>
+            <a className="group-link-button" href={zaloGroupUrl} target="_blank" rel="noopener noreferrer">
+              <MousePointerClick />
+              <span><small>CÁCH 1</small><b>Bấm vào đây để vào nhóm Zalo</b></span>
+              <ArrowRight />
+            </a>
             <div className="event-meta">
               <div><CalendarDays /><span><b>Khi nào?</b><small>Lịch cụ thể được gửi sau khi đăng ký</small></span></div>
               <div><MonitorPlay /><span><b>Ở đâu?</b><small>Thông tin hình thức học được xác nhận qua Zalo</small></span></div>
@@ -365,10 +386,10 @@ export default function Home() {
             </div>
           </div>
           <div className="qr-card">
-            <span className="qr-badge">QUÉT MÃ ĐỂ GIỮ CHỖ</span>
+            <span className="qr-badge">CÁCH 2 · QUÉT MÃ QR</span>
             <img src={`${imageRoot}/registration-qr.jpg`} alt="Mã QR Zalo đăng ký thử thách Affiliate cùng Chu Bảo Linh" loading="lazy" />
-            <p>Mở camera điện thoại hoặc ứng dụng Zalo để quét mã.</p>
-            <a href="#top">Xem lại thông tin <ArrowRight size={18} /></a>
+            <p>Mở ứng dụng Zalo và quét mã để tham gia nhóm.</p>
+            <a href={zaloGroupUrl} target="_blank" rel="noopener noreferrer">Mở link nhóm Zalo <ArrowRight size={18} /></a>
           </div>
         </div>
       </section>
