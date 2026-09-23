@@ -22,9 +22,9 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { RegistrationProvider, RegistrationTrigger } from "@/components/registration-flow";
 
 const imageRoot = "/images/chu-bao-linh";
-const zaloGroupUrl = "https://zaloapp.com/qr/g/hmpjvz159?src=qr";
 
 const painPoints = [
   "Bạn muốn bắt đầu Affiliate nhưng chưa biết nên chọn sản phẩm, nội dung hay công cụ trước.",
@@ -105,11 +105,11 @@ const after = [
 
 function Cta({ compact = false, dark = false }: { compact?: boolean; dark?: boolean }) {
   return (
-    <a className={`cta-button ${compact ? "cta-compact" : ""} ${dark ? "cta-dark" : ""}`} href="#dang-ky">
+    <RegistrationTrigger className={`cta-button ${compact ? "cta-compact" : ""} ${dark ? "cta-dark" : ""}`}>
       <span>THAM GIA THỬ THÁCH 2 NGÀY</span>
-      <small>Nhấn để xem thông tin giữ chỗ</small>
+      <small>Nhấn để đăng ký miễn phí</small>
       <ArrowRight aria-hidden="true" size={24} />
-    </a>
+    </RegistrationTrigger>
   );
 }
 
@@ -133,7 +133,8 @@ function SectionHeading({ eyebrow, title, description, light = false }: { eyebro
 
 export default function Home() {
   return (
-    <main>
+    <RegistrationProvider>
+      <main>
       <div className="announcement">
         <CalendarDays aria-hidden="true" size={20} />
         <span>Thử thách thực hành 2 ngày <b>·</b> Affiliate tự động cùng Chu Bảo Linh</span>
@@ -364,32 +365,28 @@ export default function Home() {
               <div><BookOpenCheck /><span><b>Kế hoạch hành động</b><small>Biết bước tiếp theo sau thử thách</small></span></div>
             </div>
           </div>
-          <div className="offer-cta"><p className="offer-note">Thông tin lịch tổ chức và hình thức tham gia sẽ được xác nhận khi bạn quét mã giữ chỗ.</p><Cta /></div>
+          <div className="offer-cta"><p className="offer-note">Điền thông tin đăng ký để nhận hướng dẫn tham gia và đường dẫn vào nhóm Zalo.</p><Cta /></div>
         </div>
       </section>
 
       <section className="section registration-section" id="dang-ky">
         <div className="container registration-grid">
           <div className="registration-copy">
-            <div className="pill pill-light"><CircleDollarSign size={16} /> 2 CÁCH VÀO NHÓM ZALO</div>
-            <h2>Chọn cách thuận tiện nhất để tham gia nhóm</h2>
-            <p>Bấm trực tiếp vào liên kết bên dưới hoặc dùng Zalo quét mã QR. Cả hai cách đều đưa bạn đến cùng một nhóm.</p>
-            <a className="group-link-button" href={zaloGroupUrl} target="_blank" rel="noopener noreferrer">
-              <MousePointerClick />
-              <span><small>CÁCH 1</small><b>Bấm vào đây để vào nhóm Zalo</b></span>
-              <ArrowRight />
-            </a>
+            <div className="pill pill-light"><CircleDollarSign size={16} /> ĐĂNG KÝ MIỄN PHÍ</div>
+            <h2>Sẵn sàng tham gia Thử thách 2 ngày Affiliate?</h2>
+            <p>Hoàn tất biểu mẫu ngắn để nhận xác nhận đăng ký, mã QR và đường dẫn vào nhóm Zalo dành cho người tham gia.</p>
             <div className="event-meta">
-              <div><CalendarDays /><span><b>Khi nào?</b><small>Lịch cụ thể được gửi sau khi đăng ký</small></span></div>
-              <div><MonitorPlay /><span><b>Ở đâu?</b><small>Thông tin hình thức học được xác nhận qua Zalo</small></span></div>
-              <div><Target /><span><b>Vì sao tham gia?</b><small>Để có bản đồ, bộ khung và kế hoạch hành động</small></span></div>
+              <div><MousePointerClick /><span><b>Bước 1 · Điền thông tin</b><small>Tên, số điện thoại và email của bạn</small></span></div>
+              <div><BadgeCheck /><span><b>Bước 2 · Xác nhận thành công</b><small>Hệ thống chuyển bạn đến trang hướng dẫn riêng</small></span></div>
+              <div><Users /><span><b>Bước 3 · Vào nhóm Zalo</b><small>Bấm nút hoặc quét mã QR để tham gia</small></span></div>
             </div>
           </div>
-          <div className="qr-card">
-            <span className="qr-badge">CÁCH 2 · QUÉT MÃ QR</span>
-            <img src={`${imageRoot}/registration-qr.jpg`} alt="Mã QR Zalo đăng ký thử thách Affiliate cùng Chu Bảo Linh" loading="lazy" />
-            <p>Mở ứng dụng Zalo và quét mã để tham gia nhóm.</p>
-            <a href={zaloGroupUrl} target="_blank" rel="noopener noreferrer">Mở link nhóm Zalo <ArrowRight size={18} /></a>
+          <div className="registration-final-card">
+            <span>CHỈ CÒN 1 BƯỚC</span>
+            <h3>Nhận vé tham gia và hướng dẫn vào nhóm Zalo</h3>
+            <p>Sau khi gửi biểu mẫu, bạn sẽ thấy ngay mã QR và nút tham gia nhóm.</p>
+            <Cta compact dark />
+            <small>Thông tin của bạn chỉ được dùng cho việc xác nhận và hướng dẫn tham gia chương trình.</small>
           </div>
         </div>
       </section>
@@ -402,6 +399,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">© 2026 Chu Bảo Linh. Bảo lưu mọi quyền.</div>
       </footer>
-    </main>
+      </main>
+    </RegistrationProvider>
   );
 }
