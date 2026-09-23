@@ -8,7 +8,7 @@ import {
   QrCode,
 } from "lucide-react";
 
-const zaloGroupUrl = "https://zalo.me/g/tqdteq297";
+const zaloGroupUrl = "https://zalo.me/g/hmpjvz159";
 
 export const metadata: Metadata = {
   title: "Đăng ký thành công | Thử thách 2 ngày Affiliate",
