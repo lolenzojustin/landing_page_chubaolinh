@@ -344,9 +344,8 @@ a {
 
 .hero-image-frame {
   width: min(760px, 88%);
-  height: 590px;
   border: 8px solid white;
-  border-radius: 32px 32px 0 0;
+  border-radius: 32px;
   overflow: hidden;
   background: #d9f2ff;
   box-shadow: 0 38px 90px rgb(8 66 109 / 24%);
@@ -354,10 +353,9 @@ a {
 }
 
 .hero-image-frame img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 14%;
+  height: auto;
 }
 
 .floating-card {
@@ -2125,7 +2123,7 @@ footer {
   .hero-copy .cta-button { margin-inline: auto; }
   .hero-points { justify-content: center; }
   .hero-visual { min-height: 0; }
-  .hero-image-frame { width: 92%; height: 540px; }
+  .hero-image-frame { width: 92%; }
   .trust-strip { margin-top: 0; padding-top: 20px; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-grid > div:nth-child(2) { border-right: 0; }
@@ -2183,7 +2181,7 @@ footer {
   .pill { font-size: .8125rem; }
   .hero-points { display: grid; justify-content: start; width: fit-content; margin-inline: auto; text-align: left; }
   .hero-visual { min-height: 0; }
-  .hero-image-frame { width: 94%; height: 470px; border-width: 5px; border-radius: 24px 24px 0 0; }
+  .hero-image-frame { width: 94%; border-width: 5px; border-radius: 24px; }
   .floating-card { min-width: 150px; padding: 11px 13px; }
   .floating-card-top { top: 25px; left: -2px; }
   .floating-card-bottom { right: -2px; bottom: 35px; }
