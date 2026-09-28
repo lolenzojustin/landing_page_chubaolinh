@@ -145,15 +145,13 @@ export default function Home() {
         <div className="hero-orb hero-orb-two" />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="pill"><Sparkles size={16} /> CHƯƠNG TRÌNH THỰC HÀNH DÀNH CHO NGƯỜI MỚI</div>
-            <p className="hero-kicker">KHÔNG CẦN GIỎI CÔNG NGHỆ · KHÔNG CẦN BẰNG CẤP</p>
+            <p className="hero-pretitle"><Sparkles aria-hidden="true" /> BÍ MẬT XÂY HỆ THỐNG AFFILIATE CHO NGƯỜI MỚI</p>
             <h1>
-              <span className="hero-title-days">THỬ THÁCH 2 NGÀY</span>
-              <span className="hero-title-income">DÒNG TIỀN 30 TRIỆU/THÁNG TỪ AFFILIATE</span>
-              <span className="hero-title-phone">chỉ cần biết bấm điện thoại <em>(MIỄN PHÍ)</em></span>
+              <span className="hero-title-primary">THỬ THÁCH 2 NGÀY - DÒNG TIỀN 30 TRIỆU/THÁNG TỪ</span>
+              <span className="hero-title-secondary">AFFILIATE <small>chỉ cần biết bấm điện thoại</small> <em>(MIỄN PHÍ)</em></span>
             </h1>
-            <p className="hero-lead"><strong>Không học lý thuyết suông.</strong> Trong 2 ngày, bạn sẽ từng bước bóc tách mô hình Affiliate và ghép nội dung, công cụ, điểm chuyển đổi thành một quy trình dễ hiểu.</p>
-            <p className="hero-requirement">Chỉ cần một chiếc điện thoại có kết nối internet và tinh thần sẵn sàng thực hành.</p>
+            <p className="hero-lead">Không học lý thuyết suông. Trong 2 ngày, bạn sẽ <strong>bóc tách mô hình Affiliate</strong> và ghép nội dung, công cụ, điểm chuyển đổi thành một quy trình dễ hiểu.</p>
+            <p className="hero-requirement">Không cần giỏi. Không cần bằng cấp. Chỉ cần điện thoại có kết nối internet.</p>
             <div className="hero-points">
               <span><CheckCircle2 /> Dành cho người mới</span>
               <span><CheckCircle2 /> Làm từng bước trong 2 ngày</span>
@@ -162,7 +160,6 @@ export default function Home() {
             <Cta />
           </div>
           <div className="hero-visual">
-            <div className="hero-number">2</div>
             <div className="hero-image-frame">
               <img src={`${imageRoot}/hero-suit.png`} alt="Chu Bảo Linh và bộ tài nguyên chương trình Affiliate tự động" fetchPriority="high" />
             </div>
