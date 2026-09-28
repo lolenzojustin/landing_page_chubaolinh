@@ -137,7 +137,7 @@ export default function Home() {
       <main>
       <div className="announcement">
         <CalendarDays aria-hidden="true" size={20} />
-        <span>Thử thách thực hành 2 ngày <b>·</b> Affiliate tự động cùng Chu Bảo Linh</span>
+        <span><strong>Thử thách trực tiếp!</strong> 2 ngày Affiliate — bắt đầu chỉ với chiếc điện thoại</span>
       </div>
 
       <section className="hero" id="top">
@@ -145,13 +145,18 @@ export default function Home() {
         <div className="hero-orb hero-orb-two" />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="pill"><Sparkles size={16} /> LỘ TRÌNH DÀNH CHO NGƯỜI MUỐN BẮT ĐẦU</div>
-            <p className="hero-kicker">THỬ THÁCH THỰC HÀNH</p>
-            <h1><span>2 NGÀY</span> XÂY NỀN TẢNG AFFILIATE TỰ ĐỘNG</h1>
-            <p className="hero-lead">Từng bước ghép nội dung, công cụ và điểm chuyển đổi thành một quy trình dễ hiểu — ngay cả khi bạn chưa rành công nghệ.</p>
+            <div className="pill"><Sparkles size={16} /> CHƯƠNG TRÌNH THỰC HÀNH DÀNH CHO NGƯỜI MỚI</div>
+            <p className="hero-kicker">KHÔNG CẦN GIỎI CÔNG NGHỆ · KHÔNG CẦN BẰNG CẤP</p>
+            <h1>
+              <span className="hero-title-days">THỬ THÁCH 2 NGÀY</span>
+              <span className="hero-title-income">DÒNG TIỀN 30 TRIỆU/THÁNG TỪ AFFILIATE</span>
+              <span className="hero-title-phone">chỉ cần biết bấm điện thoại <em>(MIỄN PHÍ)</em></span>
+            </h1>
+            <p className="hero-lead"><strong>Không học lý thuyết suông.</strong> Trong 2 ngày, bạn sẽ từng bước bóc tách mô hình Affiliate và ghép nội dung, công cụ, điểm chuyển đổi thành một quy trình dễ hiểu.</p>
+            <p className="hero-requirement">Chỉ cần một chiếc điện thoại có kết nối internet và tinh thần sẵn sàng thực hành.</p>
             <div className="hero-points">
-              <span><CheckCircle2 /> Quy trình rõ ràng</span>
-              <span><CheckCircle2 /> Thực hành từng bước</span>
+              <span><CheckCircle2 /> Dành cho người mới</span>
+              <span><CheckCircle2 /> Làm từng bước trong 2 ngày</span>
               <span><CheckCircle2 /> Không cam kết thu nhập</span>
             </div>
             <Cta />
